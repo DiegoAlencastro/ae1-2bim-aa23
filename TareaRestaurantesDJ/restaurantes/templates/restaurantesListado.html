@@ -1,0 +1,33 @@
+{% extends "principal.html" %}
+{% block contentido %}
+
+  <h2>Restaurantes de Quito</h2>
+  <table id="tablaListar">
+    <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Direccion</th>
+      <th>Estrellas</th>
+      <th>Numero de sucursales</th>
+      <th>Telefono</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for restaurante in listadoRestaurantes  %}
+      <tr>
+        <td>{{restaurante.nombre}}</td>
+        <td>{{restaurante.direccion}}</td>
+        <td>{{restaurante.estrellas}}</td>
+        <td>{{restaurante.numero_surcursales}}</td>
+        <td>{{restaurante.telefono}}</td>
+      </tr>
+      {% endfor %}
+
+    </table>
+  </tbody>
+    <script type="text/javascript">
+      $(document).ready( function () {
+          $('#tablaListar').DataTable();
+        });
+    </script>
+{% endblock %}
